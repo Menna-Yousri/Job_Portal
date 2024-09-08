@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    <h1 class="h1">{{job}}</h1>
+{% endblock title %}
+{% block Content %}
+    <div class="dcontent">
+        <div class="jnm-desc-app">
+            <div class="jnm">
+                <div class="job">
+                    <div class="img-name">
+                        <div class="img">
+                            <img src="{{job.image.url}}" alt="Job image" class="image">
+                        </div>
+                        <div class="name">
+                            <h4>{{job}}</h4>
+                            <div class="main">
+                                <div id="p1"><p> <i class="fa-solid fa-location-dot"></i> Menoufia, Menouf</p></div>
+                                <div id="p2"><p> <i class="fa-regular fa-clock"></i> {{job.job_type}}</p></div>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="desc">
+
+            </div>
+            <div class="app">
+
+            </div>
+        </div>
+        <div class="sum">
+        </div>
+    </div>
+{% endblock Content %}

@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %}
+    <h1 class="h1">{{jobs.count}}+ Jobs Available</h1>
+{% endblock title %}
+{% block Content %}
+    <div class="content">
+        <div class="filter">
+            <form action="#">
+                <h3>Filter</h3>
+                <div class="search">
+                    <input type="search" placeholder="Search keyword">
+                </div>
+                <div class="single_field">
+                    <div class="options">
+                        <select id="location" name="location" class="option">
+                            <option data-display="Location">Location</option>
+                            <option value="1" class="special">Cairo</option>
+                            <option value="2" class="special">Menofia</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="single_field">
+                    <div class="options">
+                        <select id="experience" name="experience" class="option">
+                            <option data-display="Experience">Experience</option>
+                            <option value="1">Experience 1</option>
+                            <option value="2">Experience 2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="single_field">
+                    <div class="options">
+                        <select id="job_type" name="job_type" class="option">
+                            <option data-display="Job type">Job type</option>
+                            <option value="1">Full Time</option>
+                            <option value="2">Part Time</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="single_field">
+                    <div class="options">
+                        <select id="qualification" name="qualification" class="option">
+                            <option data-display="Qualification">Qualification</option>
+                            <option value="1">Qualification 1</option>
+                            <option value="2">Qualification 2</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="single_field">
+                    <div class="options">
+                        <select id="gender" name="gender" class="option">
+                            <option data-display="Gender">Gender</option>
+                            <option value="1">Male</option>
+                            <option value="2">Female</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <div class="range">
+                <div class="slider">
+                    <label for="amount">Price range:</label>
+                    <input type="range" id="amount" name="vol" min="0" max="30000" style="accent-color: #00D363">
+                </div>
+                </div>
+            <div class="reset_btn">
+                <button class="button" type="submit">Reset</button>
+            </div>
+        </div>
+
+
+        <div class="job_list">
+            <div class="title"><h3>Job Listing</h3></div>
+            {% for job in jobs %}
+            <div class="job">
+                <div class="img-name">
+                    <div class="img">
+                        <img src="{{job.image.url}}" alt="Job image" class="image">
+                    </div>
+                    <div class="name">
+                        <h4>{{job}}</h4>
+                        <div class="main">
+                            <div id="p1"><p> <i class="fa-solid fa-location-dot"></i> Menoufia, Menouf</p></div>
+                            <div id="p2"><p> <i class="fa-regular fa-clock"></i> {{job.job_type}}</p></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="app-date">
+                    <button class="btn">Apply Now</button>
+                    <p class="date"> <i>Date line: {{job.published_at|date:'d M o'}}</i> </p>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="pagination">
+                <a href="#" id="a1"><i class="fa-solid fa-angle-left"></i></a>
+                <a href="#" id="a2">01</a>
+                <a href="#" id="a3">02</a>
+                <a href="#" id="a4"><i class="fa-solid fa-angle-right"></i></a>
+            </div>
+        </div>
+
+    </div>
+{% endblock Content %}
